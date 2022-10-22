@@ -1,0 +1,92 @@
+\documentclass[twoside,a4paper]{article}
+\usepackage{geometry}
+\geometry{margin=1.5cm, vmargin={0pt,1cm}}
+\setlength{\topmargin}{-1cm}
+\setlength{\paperheight}{29.7cm}
+\setlength{\textheight}{25.3cm} 
+
+% useful packages.
+
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{layout}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{natbib}
+\usepackage{mathrsfs}
+\usepackage[sans]{dsfont}
+
+% some common command
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\difFrac}[2]{\frac{\dif #1}{\dif #2}}
+\newcommand{\pdfFrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\OFL}{\mathrm{OFL}}
+\newcommand{\UFL}{\mathrm{UFL}}
+\newcommand{\fl}{\mathrm{fl}}
+\newcommand{\op}{\odot}
+\newcommand{\Eabs}{E_{\mathrm{abs}}}
+\newcommand{\Erel}{E_{\mathrm{rel}}}
+\newcommand*{\circled}[1]{\hbox{\tikz\draw (0pt, 0pt)%
+    circle (.5em) node {\makebox[1em][c]{\small #1}};}}
+
+\newcommand{\mx}{{\mathbf{x}}}
+\newcommand{\mX}{{\mathbf{X}}}
+\newcommand{\ml}{{\mathbf{l}}}
+\newcommand{\me}{{\mathbf{e}}}
+\newcommand{\mI}{{\mathbf{I}}}
+\newcommand{\mw}{{\mathbf{w}}}
+\newcommand{\mi}{{\mathbf{i}}}
+\newcommand{\mj}{{\mathbf{j}}}
+\newcommand{\mL}{{\mathbf{L}}}
+\newcommand{\mU}{{\mathbf{U}}}
+\newcommand{\mA}{{\mathbf{A}}}
+\newcommand{\mP}{{\mathbf{P}}}
+\newcommand{\mQ}{{\mathbf{Q}}}
+
+\theoremstyle{definition}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{coro}[thm]{Corollary}
+\newtheorem{rmk}{Remark}[section]
+\newtheorem{exm}[thm]{Example}
+\newtheorem{nota}[thm]{Notation}
+\newtheorem{alg}[thm]{Algorithm}
+
+\newenvironment{soln}{\paragraph{Solution.}}{\hfill\qedsymbol\null}
+
+\newcommand{\cond}{\mathrm{cond}}
+
+\title{Multigrid Preconditioner for Solving GePUP Equations}
+\author{Liu jiyu}
+\begin{document}
+\maketitle
+
+\input{GePuPEquation}
+\input{SpatialDiscretization}
+\input{TimeIntegration}
+
+\bibliography{ref.bib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authoryear,open={[},close={]}}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

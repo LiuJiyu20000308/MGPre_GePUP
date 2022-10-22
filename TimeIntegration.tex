@@ -1,0 +1,63 @@
+
+\section{Time Integration}
+\label{sec:TimeIntegration}
+
+We apply ERK-ESDIRK to semi-discrete formulae \eqref{eq:SemiGePuP}, in
+which the RHS of \eqref{eq:SemiGePuPa} is divided into an explicit
+part and an implicit part:
+\begin{subequations}
+  \begin{eqnarray}
+    &\mathbf{X}^{[E]} = \left<\mathbf{g}\right>-\mathbf{D}\left<\mathbf{uu}\right>
+      - \mathbf{G}\left<q\right>, \\
+    & \mathbf{X}^{[I]} = \nu\mathbf{L}\left<\mw\right>.
+  \end{eqnarray}
+\end{subequations}
+
+Now we obtain GePuP-IMEX algorithm:
+\begin{subequations}
+  \begin{eqnarray}
+    &&\left<\mathbf{w}\right>^{(1)}=\left<\mathbf{w}\right>^{n}, \\
+    &&\left\{
+    \begin{array}{l}
+      \mbox{for } s=2,3,\cdots,n_s, \\
+      \left(\mathbf{I}-\Delta
+      t\gamma\nu\mathbf{L}\right)\left<\mathbf{w}\right>^{(s)} =
+      \left<\mathbf{w}\right>^{n} + \Delta
+      t\sum\limits_{j=1}^{s-1}a_{s,j}^{[E]}\mX
+      ^{[E]}\left(\left<\mathbf{u}\right>^{(j)},t^{(j)}\right) +\Delta
+      t\nu\sum\limits_{j=1}^{s-1}a_{s,j}^{[I]}\mL\left<\mathbf{w}\right>^{(j)},\\
+      \left<\mathbf{u}\right>^{(s)}=\mathbb{P}\left<\mathbf{w}\right>^{(s)},
+    \end{array} 
+    \right.\\
+    &&\left\{
+       \begin{array}{l}
+         \left<\mathbf{w}\right>^*=\left<\mathbf{w}\right>^{(n_s)}+\Delta
+         t\sum\limits_{j=1}^{n_s}\left(b_j-a_{n_s,j}^{[E]}\right)\mX^{[E]}\left(\left<\mathbf{u}
+         \right>^{(j)},t^{(j)}\right),\\
+         \left<\mathbf{u}\right>^{n+1}=\mathbb{P}\left<\mathbf{w}\right>^*,\\
+         \left<\mathbf{w}\right>^{n+1}=\left<\mathbf{u}\right>^{n+1}.
+       \end{array}
+       \right.
+  \end{eqnarray}
+\end{subequations}
+
+There are three linear systems of equations need to be solved at each
+intermediate stage:
+\begin{enumerate}
+\item A Poisson equation with Neumann boundary condition for
+  extracting $\left<q\right>$ from $\left<\mathbf{u}\right>$.
+\item A Helmholtz equation with no-slip boundary condition for
+  evaluating $\left<\mathbf{u}\right>$.
+\item A Poisson equation with Neumann boundary condition for
+  projecting $\left<\mw\right>^*$.
+\end{enumerate}
+
+Above all, the essence of our work is solving a Poisson equation
+$L\phi=b$ on
+an irregular domain, the spatial discretization is  the same as that
+in section \ref{sec:SpatialDiscretiazation}.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "MGPreconditioner_MathDoc"
+%%% End:

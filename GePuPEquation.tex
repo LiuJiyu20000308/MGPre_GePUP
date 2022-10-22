@@ -1,0 +1,26 @@
+\section{GePuP Equations}
+\label{sec:GePuP}
+
+In a bounded domain $\Omega\in\mathbb{R}^D$, we numerically solve the
+incompressible Navier-Stokes equations with no-slip condition:
+\begin{subequations}
+  \label{eq:GePuP}
+  \begin{eqnarray}
+  &\pdfFrac{\mathbf{w}}{t}=
+  \mathbf{g}-\mathbf{u}\cdot\nabla\mathbf{u}-\nabla q +
+  \nu\Delta\mathbf{w} \mbox{ in } \Omega, \\
+  &\mathbf{w}=0 \mbox{ on }\partial \Omega, \\
+  &\mathbf{u}=\mathscr{P}\mathbf{w}\mbox{ in } \Omega, \\
+  &\mathbf{u\cdot n}=0\mbox{ on }\partial \Omega,\\
+  &\Delta q =
+  \nabla\cdot(\mathbf{g}-\mathbf{u}\cdot\nabla\mathbf{u})\mbox{ in
+  }\Omega,\\
+  &\mathbf{n}\cdot\nabla q=
+  \mathbf{n}\cdot(\mathbf{g}+\nu\Delta\mathbf{u}-\nu\nabla\nabla\cdot\mathbf{u})\mbox{
+  on } \partial \Omega.
+\end{eqnarray}
+\end{subequations}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "MGPreconditioner_MathDoc"
+%%% End:
