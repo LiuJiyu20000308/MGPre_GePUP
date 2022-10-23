@@ -124,7 +124,8 @@ $\left\{\lambda_i\ |\ i>l\right\}$.
 
 Backtrack to the multigrid preconditioner, an iteration of a multigrid
 cycle is equivalent to a Richardson iteration on  the preconditioned
-matrix \textbf{ref???}. With $K$ being the iteration matrix, multigrid
+matrix\cite{oosterlee_evaluation_1998}. With $K$ being the iteration
+matrix, multigrid
 can be written as follows:
 \begin{equation}
   \label{eq:RichardsonIter}
@@ -142,13 +143,73 @@ The spectral radius of $I-AK^{-1}$ determines the convergence. With
 this spectrum we can also investigate the convergence of
 preconditioned GMRES. From \eqref{eq:normOfResidual2}, the asymptotic
 convergence of GMRES($m$) is at least faster than Richardson with an initial
-residual.
+residual. 
 
-In \textbf{???}, the author compared multigrid preconditioned
+In \cite{oosterlee_evaluation_1998}, the author compared multigrid preconditioned
 GMRES($m$) and multigrid solver in several singularly perturbed
-problems. In \textbf{???}, the author compared multigrid
+problems. In \cite{guy_multigrid_2012}, the author compared multigrid
 preconditioned GMRES($m$) and multigrid solver for implicit immersed
-boundary equations.
+boundary equations. Here is an example:
+
+\begin{exm}
+  Here is a rotated anisotropic diffusion problem:
+  \begin{equation}
+    \label{eq:RotatingCon-D}
+    -(\cos^2\beta +\epsilon\sin^2\beta)\frac{\partial^2\phi}{\partial
+      x^2} - 2(\epsilon -
+    1)\cos\beta\sin\beta\frac{\partial^2\phi}{\partial x\partial y} -
+    (\epsilon\cos^2\beta + \sin^2\beta)\frac{\partial^2\phi}{\partial
+      y^2} = 1
+    \mbox{ on } \Omega=(0,1)\times (0,1).
+\end{equation}
+Here $\epsilon=10^{-5}$ and $\beta=135^o$, boundary conditions are prescribed :
+\begin{equation}
+  \begin{aligned}
+    \pdfFrac{\phi}{n} = 0 \mbox{ on } \{x=0,\ 0\leq y\leq 1\},\{0\leq
+    x\leq 1,\ y=0\},\\
+    \phi=0\mbox{ on } \{x=1,\ 0\leq y\leq 1\},\{0\leq x\leq 1,\ y=1\}.
+  \end{aligned}
+\end{equation}
+
+For this test problem, the eigenvalue spectrum of the Richardson
+iteration matrix $I-AK^{-1}$ is investigated on a $33\times 33$ grid,
+it is presented in figure \ref{fig:spectrum}.
+
+\begin{figure}[htbp]
+      \centering
+      \includegraphics[width=0.5\textwidth]{Spectrum.png}
+      \caption{The eigenvalue spectra for the rotated anisotropic
+        diffusion problem,$\epsilon=10^{-5}$, $\beta=135^o$ on a
+        $33\times 33$ grid.}
+      \label{fig:spectrum}
+    \end{figure}
+
+It can be seen that the spectral radius for coarse grid problems is
+already larger than 0.6. Therefore, the multigrid convergence slows
+down more dramatically than the convergence of the preconditioned
+Krylov methods. What's more, eigenvalues of the preconditioned matrix
+$(AK^{-1})$ are clusted around $1$, which is advantageous for the
+Krylov methods. The convergence of multigrid as solution methods and
+as preconditioners for GMRES(20) is presented for $33\times 33$ grid
+in Figure \ref{fig:convergence}.
+
+\begin{figure}[htbp]
+      \centering
+      \includegraphics[width=0.75\textwidth]{Convergence.png}
+      \caption{The convergence of the MG solvers (a), and GMRES(20)
+        with MG preconditioners (b) for the rotated anisotropic
+        diffusion equation on a $33\times 33$ grid.}
+      \label{fig:convergence}
+    \end{figure}
+
+MG1, MG2, MG3 are multigrid methods with different prolongation and
+restriction operators. It can be seen that different prolongation and
+restriction operators will affect the convergence rate. However, no
+matter which operators are used, MG preconditioned GMRES($m$) method
+performs better than MG solver in this problem.
+\end{exm}
+
+
 
 The conclusion is that the behavior of the multigrid methods
 are much more robust when they are used as preconditioners, problems
@@ -157,12 +218,28 @@ be solved with the preconditioned Krylov methods. The efficiency of
 the multigrid solver alone is not impressive, but it is a very
 effective preconditioner for Krylov methods. We also can improve the
 preconditioned Krylov methods by using a more sophisticated smoother
-in multigrid preconditioner(\textbf{????})
+in multigrid preconditioner, just like Figure \ref{fig:convergence}.
 
 \section{Next step}
 \label{sec:goal}
 
-The follow-up work is mainly divided into two parts
+The follow-up work is mainly divided into two steps:
+
+\begin{enumerate}
+\item There is not much mathematical theory on multigrid
+  preconditioned Krylov subspace methods, most papers do numerical
+  experience to compare multigrid solver and multigrid preconditioner.
+  So firstly we could investigate the eigenvalue spectrum of the
+  Richardson iteration matrix $I-AK^{-1}$ in
+  \eqref{eq:Richardson2} of three linear systems during solving GePuP
+  equations. If many eigenvalues are clustered around zero and only a
+  limited number of eigenvalues are far from zero, eigenvalues of the preconditioned
+  matrix $AK^{-1}$  will be clustered around one, which is
+  advantageous for the Krylov methods by Theorem \ref{thm:GMRES}.
+\item Then implement multigrid preconditioned GMRES($m$) methods and
+  apply it to solve GePuP equations, compare with the original program
+  in terms of convergence and efficiency.
+\end{enumerate}
 
 
 
