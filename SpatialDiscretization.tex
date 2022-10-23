@@ -2,23 +2,23 @@
 \label{sec:SpatialDiscretization}
 
 \begin{defn}
-  $R$ is called \emph{square domain} if it can be written into
+  $R$ is called a \emph{square domain} if it can be written as
   $R=[\mathbf{x}_O,\mathbf{x}_E]$, where
   $\mathbf{x}_O,\mathbf{x}_E\in\mathbb{R}^D$.
 \end{defn}
 \begin{defn}
-  $\Omega$ is called \emph{regular domain} if it can be written into an
+  $\Omega$ is called a \emph{regular domain} if it can be written as an
   union of finite disjoint square domains, i.e.
   \begin{equation}
     \Omega = \bigcup\limits_{k=1}^NR_k,
   \end{equation}
-  where $R_k$ is square domains.
+  where $R_k,\ k=1,\ldots,N$ are square domains.
 \end{defn}
 
-Let $\Omega$ be computational domain and  $R$ be a regular domain
+Denote the computational domain as $\Omega$ and  let $R$ be a regular domain
 containing $\Omega$, we discretize $R$ into a
 collection of square control volumes. Denote a control colume by a multi-index
-$\mathbf{i}\in \mathbb{Z}^D$, the region of cell $\mathbf{i}$ is
+$\mathbf{i}\in \mathbb{Z}^D$, then the region of cell $\mathbf{i}$ can be
 represented by
 \begin{equation}
   \label{eq:Ci}
@@ -35,12 +35,12 @@ $d$ by
     +\left(\mathbf{i}+\mathds{1}\right)h \right],
 \end{equation}
 where $\mathbf{x}_O\in\mathbb{R}^D$ is some fixed origin of the
-coordinates, $h$ the uniform grid size, $\mathds{1}\in\mathbb{Z}^D$
-the multi-index with all its components equal to one, and
-$\mathbf{e}^d\in\mathbb{Z}^D$ a multi-index with 1 as its $d$th
+coordinates, $h$ is the uniform grid size, $\mathds{1}\in\mathbb{Z}^D$
+is the multi-index with all its components equal to one, and
+$\mathbf{e}^d\in\mathbb{Z}^D$ is a multi-index with 1 as its $d$th
 component and 0 otherwise.
 
-For irregular domain $\Omega$, we embed it on a discrete square
+For an irregular domain $\Omega$, we embed it into a discrete square
 domain and  denote the corresponding cutting control volume and
 control face as
 \begin{equation}
@@ -49,18 +49,18 @@ control face as
   {F}_{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}  \cap \Omega.
 \end{equation}
 
-We call $\mathcal{C}_{\mathbf{i}}$ interior control volume if
-$\mathcal{C}_{\mathbf{i}} = C_{\mathbf{i}}$, exterior control volume
-if $\mathcal{C}_{\mathbf{i}}=\emptyset$, boundary control volume if
+We call $\mathcal{C}_{\mathbf{i}}$ an interior control volume if
+$\mathcal{C}_{\mathbf{i}} = C_{\mathbf{i}}$, an exterior control volume
+if $\mathcal{C}_{\mathbf{i}}=\emptyset$, a boundary control volume if
 $\mathcal{C}_{\mathbf{i}}\neq C_{\mathbf{i}},\emptyset$. For a
 boundary control volume, we denote its boundary as
 \begin{equation}
   \label{eq:boundaryOfvolume}
   \mathcal{S}_{\mathbf{i}} := {C}_{\mathbf{i}}\cap\partial\Omega.
 \end{equation}
-There are the same classifications for control faces. The following
-figure shows the spatial discretization of two different computational
-domains:
+There are the same classifications for control faces. Figure
+\ref{fig:SpatialDiscretizationOfCD}  shows the spatial discretization
+of two different computational domains:
 
 \begin{figure}[htbp]
   \centering
@@ -112,21 +112,21 @@ domains:
 \end{defn}
 
 
-There are three cases when discretize operators:
+There are three cases when discretizing operators:
 \begin{enumerate}
-\item For the control volumes or faces in $\Omega$ which are far away
+\item For control volumes or faces in $\Omega$ which are far away
   from the boundary, we use standard finite volume stencils.
-\item For the control volumes or faces near the regular boundary, we
+\item For control volumes or faces near the regular boundary, we
   fill the ghost cells with boundary conditions and then use standard
-  finite volume formulae.
-\item For the control volumes or faces near the irregular boundary, we
+  finite volume formulas.
+\item For control volumes or faces near the irregular boundary, we
   generate a poised lattice by poised lattice
   generating algorithm, then fit a complete
   multivariate polynomial with the poised lattice to obtain the
   discretized equation.
 \end{enumerate}
 
-\subsection{Standard finite difference formulae}
+\subsection{Standard finite difference formulas}
 \label{sec:Standard}
 
 In the regular domain, the discrete gradient, the discrete divergence and the dicrete
@@ -244,11 +244,11 @@ is the Neumann condition for $\psi$.
 \label{sec:PLG}
 
 For the control volumes and faces near the irregular boundary, where
-we can not use standard difference formulae, our idea is:
+we can not use standard difference formulas, our idea is:
 \begin{enumerate}
 \item Clarify the control volume $\mathcal{C}_{\mathbf{i}}$ (or
   control face $\mathcal{F}_{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}$)
-  where differential operator $\mathcal{L}$ is discretized, order of
+  where differential operator $\mathcal{L}$ is to be discretized, the order of
   spatial discretization $p$, and the average of differential
   operator on control volumes 
   $\left\{\left<\varphi\right>_{\mj}:\mj\in\mathbb{Z}^D\right\}$ (or
@@ -313,8 +313,9 @@ we can not use standard difference formulae, our idea is:
   \end{equation}
 \end{enumerate}
 
-Above all, we obtain the spatial discretization of GePuP equations
-\eqref{eq:GePuP}:
+Now we obtain the fourth-order (spatial) semi-discrete formulas of
+GePuP \eqref{eq:GePuP} for incompressible Navier-Stokes equations.
+
 \begin{subequations}
   \label{eq:SemiGePuP}
   \begin{eqnarray}
@@ -344,8 +345,7 @@ with the initial conditions
     &\left[\mw\right]=\mathbf{0}.
   \end{eqnarray}
 \end{subequations}
-Now we obtain the fourth-order (spatial) semi-discrete formulae of
-GePuP for incompressible Navier-Stokes equations.
+
 
 
 %%% Local Variables:

@@ -1,0 +1,31 @@
+\begin{thebibliography}{1}
+
+\bibitem{guy_multigrid_2012}
+Robert~D. Guy and Bobby Philip.
+\newblock A multigrid method for a model of the implicit immersed boundary
+  equations.
+\newblock {\em Communications in Computational Physics}, 12(2):378--400, 2012.
+\newblock Publisher: Cambridge University Press.
+
+\bibitem{oosterlee_evaluation_1998}
+Cornelis~W. Oosterlee and Takumi Washio.
+\newblock An evaluation of parallel multigrid as a solver and a preconditioner
+  for singularly perturbed problems.
+\newblock {\em SIAM Journal on Scientific Computing}, 19(1):87--110, 1998.
+\newblock Publisher: SIAM.
+
+\bibitem{zhang_fourth-order_2014}
+Qinghai Zhang.
+\newblock A fourth-order approximate projection method for the incompressible
+  {Navier}–{Stokes} equations on locally-refined periodic domains.
+\newblock {\em Applied Numerical Mathematics}, 77:16--30, 2014.
+\newblock Publisher: Elsevier.
+
+\bibitem{zhang_fourth-order_2012}
+Qinghai Zhang, Hans Johansen, and Phillip Colella.
+\newblock A fourth-order accurate finite-volume method with structured adaptive
+  mesh refinement for solving the advection-diffusion equation.
+\newblock {\em SIAM Journal on Scientific Computing}, 34(2):B179--B201, 2012.
+\newblock Publisher: SIAM.
+
+\end{thebibliography}

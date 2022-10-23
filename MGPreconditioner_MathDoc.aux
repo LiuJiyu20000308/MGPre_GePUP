@@ -1,0 +1,74 @@
+\relax 
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}GePuP Equations}{1}\protected@file@percent }
+\newlabel{sec:GePuP}{{1}{1}}
+\newlabel{eq:GePuP}{{1}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Spatial Discretization}{1}\protected@file@percent }
+\newlabel{sec:SpatialDiscretization}{{2}{1}}
+\newlabel{eq:Ci}{{3}{1}}
+\newlabel{eq:Fi}{{4}{1}}
+\newlabel{eq:boundaryOfvolume}{{6}{1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Sptial discretization of computational domain}}{2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Sptial discretization of regular domain $R$}}}{2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Spatial discretization $R(\Omega )$ of irregular domain (disc $\Omega $) embedded in the regular domain $R$, in which $\mathcal {C}_{(0,0)},\mathcal {C}_{(6,5)},\mathcal {C}_{(5,8)}$ is respectively an exterior, interior and boundary control volume.}}}{2}\protected@file@percent }
+\newlabel{fig:SpatialDiscretizationOfCD}{{1}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Standard finite difference formulas}{2}\protected@file@percent }
+\newlabel{sec:Standard}{{2.1}{2}}
+\newlabel{eq:G}{{10}{2}}
+\newlabel{eq:D}{{11}{2}}
+\newlabel{eq:L}{{12}{2}}
+\newlabel{eq:Duu}{{14}{2}}
+\newlabel{eq:ProductOf2scalar}{{15}{2}}
+\citation{zhang_fourth-order_2014}
+\citation{zhang_fourth-order_2012}
+\citation{zhang_fourth-order_2014}
+\newlabel{eq:TransverseG}{{16}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Ghost Cell}{3}\protected@file@percent }
+\newlabel{sec:GhostCell}{{2.2}{3}}
+\newlabel{eq:GhostedDiri}{{17}{3}}
+\newlabel{eq:GhostedNeumann}{{18}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}PLG}{3}\protected@file@percent }
+\newlabel{sec:PLG}{{2.3}{3}}
+\newlabel{eq:Stencil}{{19}{3}}
+\newlabel{eq:FittingPoly}{{20}{3}}
+\newlabel{eq:WeightedLSP}{{21}{3}}
+\newlabel{eq:DiscreteOp}{{22}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces For a given starting point, we choose a set of nodes to fit a high-order, multi-variate, complete polynomial, which facilitates the discretization of spatial operators and the enforcement of boundary conditions.}}{4}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {A poised lattice in $\Pi ^2_4$ at the hollow dot}}}{4}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {A poised lattice in $\Pi ^3_3$ at the hollow dot}}}{4}\protected@file@percent }
+\newlabel{fig:PLGfigure}{{2}{4}}
+\newlabel{eq:SemiGePuP}{{23}{4}}
+\newlabel{eq:SemiGePuPa}{{23a}{4}}
+\newlabel{eq:SemiGePuPInitialCond}{{24}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Time Integration}{4}\protected@file@percent }
+\newlabel{sec:TimeIntegration}{{3}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}The multigrid preconditioned Krylov methods}{5}\protected@file@percent }
+\newlabel{sec:MGPre}{{4}{5}}
+\newlabel{eq:AX=B}{{27}{5}}
+\newlabel{eq:RightPre}{{28}{5}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces \texttt  {GMRES($m,A,b,x,\epsilon $)}}}{5}\protected@file@percent }
+\newlabel{thm:GMRES}{{4.2}{5}}
+\newlabel{eq:Radius}{{29}{5}}
+\newlabel{eq:rl}{{30}{5}}
+\newlabel{eq:normOfrRl}{{31}{5}}
+\newlabel{eq:normOfResidual}{{32}{5}}
+\newlabel{eq:normOfResidual2}{{33}{5}}
+\citation{oosterlee_evaluation_1998}
+\citation{oosterlee_evaluation_1998}
+\citation{guy_multigrid_2012}
+\newlabel{eq:RichardsonIter}{{34}{6}}
+\newlabel{eq:Richardson2}{{35}{6}}
+\newlabel{eq:RotatingCon-D}{{36}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The eigenvalue spectra for the rotated anisotropic diffusion problem,$\epsilon =10^{-5}$, $\beta =135^o$ on a $33\times 33$ grid.}}{6}\protected@file@percent }
+\newlabel{fig:spectrum}{{3}{6}}
+\bibdata{ref.bib}
+\bibcite{guy_multigrid_2012}{{1}{}{{}}{{}}}
+\bibcite{oosterlee_evaluation_1998}{{2}{}{{}}{{}}}
+\bibcite{zhang_fourth-order_2014}{{3}{}{{}}{{}}}
+\bibcite{zhang_fourth-order_2012}{{4}{}{{}}{{}}}
+\bibstyle{plain}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The convergence of the MG solvers (a), GMRES(20) with MG preconditioners (b) for the rotated anisotropic diffusion equation on a $33\times 33$ grid.}}{7}\protected@file@percent }
+\newlabel{fig:convergence}{{4}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Next step}{7}\protected@file@percent }
+\newlabel{sec:goal}{{5}{7}}

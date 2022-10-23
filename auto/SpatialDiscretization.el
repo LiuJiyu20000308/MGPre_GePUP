@@ -1,0 +1,30 @@
+(TeX-add-style-hook
+ "SpatialDiscretization"
+ (lambda ()
+   (LaTeX-add-labels
+    "sec:SpatialDiscretization"
+    "eq:Ci"
+    "eq:Fi"
+    "eq:boundaryOfvolume"
+    "fig:SpatialDiscretizationOfCD"
+    "sec:Standard"
+    "eq:G"
+    "eq:D"
+    "eq:L"
+    "eq:Duu"
+    "eq:ProductOf2scalar"
+    "eq:TransverseG"
+    "sec:GhostCell"
+    "eq:GhostedDiri"
+    "eq:GhostedNeumann"
+    "sec:PLG"
+    "eq:Stencil"
+    "fig:PLGfigure"
+    "eq:FittingPoly"
+    "eq:WeightedLSP"
+    "eq:DiscreteOp"
+    "eq:SemiGePuP"
+    "eq:SemiGePuPa"
+    "eq:SemiGePuPInitialCond"))
+ :latex)
+

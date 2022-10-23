@@ -76,8 +76,8 @@ $\tilde{A}$ are close to $1\in\mathbb{C}.$
   $K(l,r^{(0)},\tilde{A})=\mbox{span}\left\{ r^{(0)},
     \tilde{A}r^{(0)},\cdots, \tilde{A}^{l-1}r^{(0)}\right\}$, 
   $P_k$ be a set of $k$th-order complex polynomials $p_k(\lambda)$ that
-  satisfy $p_k(0)=1$, and $r^{(0)}=b-\tilde{A}x^{(0)}$ the initial
-  residual. Let radius $\Gamma_i$ be defined as
+  satisfy $p_k(0)=1$, and $r^{(0)}=b-\tilde{A}x^{(0)}$ be the initial
+  residual. Define radius $\Gamma_i$ as
   \begin{equation}
     \label{eq:Radius}
     \Gamma_i := \max\left\{\Vert (\lambda_iI-\tilde{A})v \Vert_2\ |\ 
@@ -139,9 +139,10 @@ If we use multigrid solver, the formulation is equivalent to
   r^{(k+1)} = (I-AK^{-1})r^{(k)}.
 \end{equation}
 
-The spectral radius of $I-AK^{-1}$ determines the convergence. With
+The spectral radius of $I-AK^{-1}$ determines the convergence of
+multigrid solver. With
 this spectrum we can also investigate the convergence of
-preconditioned GMRES. From \eqref{eq:normOfResidual2}, the asymptotic
+preconditioned GMRES method. From \eqref{eq:normOfResidual2}, the asymptotic
 convergence of GMRES($m$) is at least faster than Richardson with an initial
 residual. 
 
@@ -162,7 +163,7 @@ boundary equations. Here is an example:
       y^2} = 1
     \mbox{ on } \Omega=(0,1)\times (0,1).
 \end{equation}
-Here $\epsilon=10^{-5}$ and $\beta=135^o$, boundary conditions are prescribed :
+Here $\epsilon=10^{-5}$, $\beta=135^o$ and boundary conditions are prescribed :
 \begin{equation}
   \begin{aligned}
     \pdfFrac{\phi}{n} = 0 \mbox{ on } \{x=0,\ 0\leq y\leq 1\},\{0\leq
@@ -173,7 +174,7 @@ Here $\epsilon=10^{-5}$ and $\beta=135^o$, boundary conditions are prescribed :
 
 For this test problem, the eigenvalue spectrum of the Richardson
 iteration matrix $I-AK^{-1}$ is investigated on a $33\times 33$ grid,
-it is presented in figure \ref{fig:spectrum}.
+as presented in figure \ref{fig:spectrum}.
 
 \begin{figure}[htbp]
       \centering
@@ -196,7 +197,7 @@ in Figure \ref{fig:convergence}.
 \begin{figure}[htbp]
       \centering
       \includegraphics[width=0.75\textwidth]{Convergence.png}
-      \caption{The convergence of the MG solvers (a), and GMRES(20)
+      \caption{The convergence of the MG solvers (a), GMRES(20)
         with MG preconditioners (b) for the rotated anisotropic
         diffusion equation on a $33\times 33$ grid.}
       \label{fig:convergence}
@@ -211,7 +212,7 @@ performs better than MG solver in this problem.
 
 
 
-The conclusion is that the behavior of the multigrid methods
+The conclusion is that the behaviors of the multigrid methods
 are much more robust when they are used as preconditioners, problems
 that could not be solved with the multigrid methods as solvers could
 be solved with the preconditioned Krylov methods. The efficiency of
@@ -236,8 +237,8 @@ The follow-up work is mainly divided into two steps:
   limited number of eigenvalues are far from zero, eigenvalues of the preconditioned
   matrix $AK^{-1}$  will be clustered around one, which is
   advantageous for the Krylov methods by Theorem \ref{thm:GMRES}.
-\item Then implement multigrid preconditioned GMRES($m$) methods and
-  apply it to solve GePuP equations, compare with the original program
+\item Then implement multigrid preconditioned GMRES($m$) method,
+  apply it to solve GePuP equations, and compare it with the original program
   in terms of convergence and efficiency.
 \end{enumerate}
 
